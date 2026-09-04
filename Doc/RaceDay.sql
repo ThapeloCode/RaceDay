@@ -16,3 +16,10 @@ CREATE TABLE dbo.Event (
     Location NVARCHAR(150) NOT NULL,
     CONSTRAINT CK_Event_Dates CHECK (End_Date >= Start_Date)
 );
+
+CREATE TABLE dbo.Category (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Event_Id INT NOT NULL,
+    Title NVARCHAR(100) NOT NULL,
+    CONSTRAINT FK_Category_Event FOREIGN KEY (Event_Id) REFERENCES dbo.Event(Id) ON DELETE CASCADE
+);
