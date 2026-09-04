@@ -23,3 +23,12 @@ CREATE TABLE dbo.Category (
     Title NVARCHAR(100) NOT NULL,
     CONSTRAINT FK_Category_Event FOREIGN KEY (Event_Id) REFERENCES dbo.Event(Id) ON DELETE CASCADE
 );
+
+CREATE TABLE dbo.Route (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Category_Id INT NOT NULL UNIQUE, -- 1:1 Relationship with Category
+    Title NVARCHAR(100) NOT NULL,
+    Location NVARCHAR(150) NOT NULL,
+    Distance_km DECIMAL(5,2) NOT NULL CONSTRAINT CK_Route_Distance CHECK (Distance_km > 0),
+    CONSTRAINT FK_Route_Category FOREIGN KEY (Category_Id) REFERENCES dbo.Category(Id) ON DELETE CASCADE
+);
