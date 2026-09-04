@@ -34,3 +34,7 @@ The core database consists of 6 normalized relational entities:
 * **Route**: Maps course routes, GPS points, and distance parameters to specific categories.
 * **Registration**: Tracks participant event registrations, assigned bib numbers, and entry dates.
 * **Results**: Records finish times (in seconds) linked directly to user registrations.
+
+## Youtube Link
+
+* **Link**: https://youtu.be/l7N9KefhuqI 
