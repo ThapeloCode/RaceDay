@@ -1,9 +1,10 @@
 USE RaceDayDb;
 GO
 
-INSERT INTO dbo.Registration (User_Id, Category_Id, Bib_Number, Date) VALUES
-(2, 21, 2045, '2026-09-01 08:30:00'), 
-(3, 21, 2046, '2026-09-01 09:15:00'),
-(4, 24, 5102, '2026-09-02 10:00:00'), 
-(5, 23, 1012, '2026-09-03 14:20:00'), 
-(2, 24, 5103, '2026-09-04 11:00:00'); 
+USE RaceDayDb;
+GO
+
+INSERT INTO dbo.Results (Registration_Id, Finish_Time_Seconds) VALUES
+(5, 5940), -- 1 hr 39
+(6, 6840), -- 1 hr 54 
+(8, 2100); -- 35 mins
