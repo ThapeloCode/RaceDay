@@ -45,3 +45,10 @@ CREATE TABLE dbo.Registration (
     CONSTRAINT UQ_User_Category UNIQUE (User_Id, Category_Id), -- Prevents duplicate registrations
     CONSTRAINT UQ_Category_Bib UNIQUE (Category_Id, Bib_Number) -- Unique Bib Number per Category
 );
+
+CREATE TABLE dbo.Results (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Registration_Id INT NOT NULL UNIQUE, -- 1:1 Relationship with Registration
+    Finish_Time_Seconds INT NOT NULL CONSTRAINT CK_Results_Time CHECK (Finish_Time_Seconds > 0),
+    CONSTRAINT FK_Results_Registration FOREIGN KEY (Registration_Id) REFERENCES dbo.Registration(Id) ON DELETE CASCADE
+);
